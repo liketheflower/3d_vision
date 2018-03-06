@@ -42,7 +42,7 @@ def data_parser(file_name):
     print clean_ptx.shape
     NUMBER_OF_PLOT_DATA=int(len(clean_ptx))
     tem_file_names = file_name.split('/')
-    plot_3d(clean_ptx,tem_file_names[-1][:-4]+'.png',True)
+    plot_3d(clean_ptx,tem_file_names[-1][:-4]+'_original.png',True)
 #    x =  clean_ptx[0:NUMBER_OF_PLOT_DATA,0]
  #   y =  clean_ptx[0:NUMBER_OF_PLOT_DATA,1]
   #  z =  clean_ptx[0:NUMBER_OF_PLOT_DATA,2]
@@ -51,5 +51,12 @@ def data_parser(file_name):
 
 
 if __name__ == "__main__":
-    file_name = "./../DATA/small_example.ptx"
-    data_parser(file_name)
+    file_names = ["./../DATA/small_example.ptx","./../DATA/big_example.ptx"]
+    for file_name in file_names:
+        data_parser(file_name)
+    
+
+
+
+
+
