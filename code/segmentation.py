@@ -75,7 +75,7 @@ def dfs(i,j, norms, ptx, seen, close_norm_thres,label ):
             if 0 <= i+di <R and 0<=j+dj<C and is_a_point(norms[i+di,j+dj]):
                 dot_products = get_dot(norms[i,j], norms[i+di,j+dj])
                 #print dot_products 
-                if abs(dot_products)<=close_norm_thres:
+                if abs(dot_products)>=close_norm_thres:
                     open_list.append((i+di,j+dj))
     return ptx, seen
 
@@ -96,7 +96,7 @@ def sequential_lab(ptx, norms,close_norm_thres, abs_file_name ):
     np.save("./result/"+abs_file_name+"_ptx_with_label_seq.npy", ptx)
     
 if __name__ == "__main__":
-    close_norm_thres = 0.5
+    close_norm_thres = 0.8
     raw_ptx_files = sorted(glob.glob("*raw_ptx_wo_label.npy"))
     norm_files = sorted(glob.glob("*example_norms.npy"))
     
