@@ -25,19 +25,25 @@ def get_clean_ptx_2d_array(a):
             tem_ptx[ii] = clean_ptx[ii]
     return  has_points, tem_ptx
 
-def plot_3d(data, file_name='small',save_fig = False, plot_style = 0):
+def plot_3d(data, file_name='small',save_fig = False, plot_style = 0,color_label_dict={}):
         #{'rear-trunk': 9, 'none': -20, 'misc': 20, 'side-right': 7, 'side-left': 6, 'roof': 1, 'front-bumper': 4, 'trunk': 3, 'interior': 8, 'rear-bumper': 5, 'hood': 2}
     twelve_colors=['#525252','#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00','#ffff33', '#a65628', '#999999','#f781bf','#bababa','#404040']
+    five_colors = ['#ff0000','#00ff00','#0000ff','#d95f02','#404040'] 
     #ax.scatter(data[:,0], data[:,1], data[:,2], ,s=2.5, linewidth=0.1)
+    
     if save_fig:
         ax = plt.axes(projection = '3d')
         ax.grid(False)
+        
         if data.shape[0]>0:
         #ax.scatter(data[i,0], data[i,1], data[i,2], c=eleven_colors[color_lbl[i]-1], alpha=0.65)
          #print "color_lbl[i]-1",color_lbl[i]-1
             for i in xrange(data.shape[0]):
                 if plot_style ==0:
-                    ax.scatter(data[i,0], data[i,1], data[i,2],s=3.5,c=twelve_colors[int(data[i,3])%12], linewidth=0.1,alpha=0.35)
+                   # print data[i,3], type(data[i,3])
+                    col_idx = color_label_dict[int(data[i,3])]
+                    #print col_idx, type(col_idx)
+                    ax.scatter(data[i,0], data[i,1], data[i,2],s=3.5,c=five_colors[col_idx], linewidth=0.1,alpha=0.35)
                 if plot_style ==1:
                     ax.scatter(data[i,0], data[i,1], data[i,2],s=1.5,c=twelve_colors[int(data[i,3])%12], linewidth=0.1,alpha=0.15)
     #ax.scatter(data[:,0], data[:,1], data[:,2], c=lbl, alpha=0.65)
@@ -99,6 +105,18 @@ def sequential_lab_b(ptx, norms,close_norm_thres, abs_file_name ):
                 label += 1
                 print label
     print label_points_count
+    color_label_dict = {}
+    label_count = [(k,v) for k,v in label_points_count.items()]
+    label_count.sort(key=lambda x: x[1],reverse = True)
+    print label_count
+    # show top 4 planes and set the rest with color label 4
+    for i in xrange(len(label_count)):
+        if i<4:
+            color_label_dict[label_count[i][0]] = i
+        else:
+            color_label_dict[label_count[i][0]] = 4
+    color_label_dict[0] = 4
+    print color_label_dict
     plt.figure()
     plt.scatter(label_points_count.keys(),label_points_count.values())
     plt.xlabel("label id")
@@ -108,7 +126,7 @@ def sequential_lab_b(ptx, norms,close_norm_thres, abs_file_name ):
     plt.close()
     _,data = get_clean_ptx_2d_array(ptx)
     print "type data",type(data)
-    plot_3d(data, abs_file_name+"_seq_b",True, 0)
+    plot_3d(data, abs_file_name+"_seq_b",True, 0,color_label_dict)
     np.save("./result/"+abs_file_name+"_ptx_with_label_seq_b.npy", ptx)
 def get_dot_norms(norms, abs_norm):
     R, C = norms.shape[0], norms.shape[1]
