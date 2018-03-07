@@ -109,14 +109,18 @@ def sequential_lab_b(ptx, norms,close_norm_thres, abs_file_name ):
     label_count = [(k,v) for k,v in label_points_count.items()]
     label_count.sort(key=lambda x: x[1],reverse = True)
     print label_count
+    top_labels =collections.defaultdict(int)
     # show top 4 planes and set the rest with color label 4
     for i in xrange(len(label_count)):
         if i<4:
+            top_labels[i]+=label_count[i][1]
             color_label_dict[label_count[i][0]] = i
         else:
+            top_labels[4]+=label_count[i][1]
             color_label_dict[label_count[i][0]] = 4
     color_label_dict[0] = 4
     print color_label_dict
+    print "top labels", top_labels
     plt.figure()
     plt.scatter(label_points_count.keys(),label_points_count.values())
     plt.xlabel("label id")

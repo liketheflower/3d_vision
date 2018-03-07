@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  7 MAR 2018 10:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  7 MAR 2018 12:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -386,7 +386,20 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip64
 )
-(./submission of project 1 from Xiaoke Shen.aux)
+(./submission of project 1 from Xiaoke Shen.aux
+
+LaTeX Warning: Label `fig:sml_origin' multiply defined.
+
+
+LaTeX Warning: Label `fig:40_50_sml_origin' multiply defined.
+
+
+LaTeX Warning: Label `fig:40_50_sml_origin' multiply defined.
+
+
+LaTeX Warning: Label `fig:40_50_sml_origin' multiply defined.
+
+)
 \openout1 = `"submission of project 1 from Xiaoke Shen.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -403,8 +416,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
-
-(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count126
 \scratchdimen=\dimen138
@@ -476,21 +488,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--64
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<small_example_original.png, id=18, 578.16pt x 433.62pt>
+<small_example_original.png, id=33, 578.16pt x 433.62pt>
 File: small_example_original.png Graphic file (type png)
 
 <use small_example_original.png>
 Package pdftex.def Info: small_example_original.png used on input line 73.
 (pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
 
-<40_to_50_scan_lines.png, id=20, 578.16pt x 433.62pt>
+<40_to_50_scan_lines.png, id=35, 578.16pt x 433.62pt>
 File: 40_to_50_scan_lines.png Graphic file (type png)
 
 <use 40_to_50_scan_lines.png>
 Package pdftex.def Info: 40_to_50_scan_lines.png used on input line 81.
 (pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
  [2 <./small_example_original.png>]
-<big_example.png, id=29, 1193.45876pt x 766.865pt>
+<big_example.png, id=42, 1193.45876pt x 766.865pt>
 File: big_example.png Graphic file (type png)
  <use big_example.png>
 Package pdftex.def Info: big_example.png used on input line 89.
@@ -501,14 +513,14 @@ Overfull \hbox (87.37505pt too wide) in paragraph at lines 89--90
  []
 
 [3 <./40_to_50_scan_lines.png>]
-<hist_of_abs_norm.png, id=36, 462.528pt x 346.896pt>
+<hist_of_abs_norm.png, id=49, 462.528pt x 346.896pt>
 File: hist_of_abs_norm.png Graphic file (type png)
 
 <use hist_of_abs_norm.png>
 Package pdftex.def Info: hist_of_abs_norm.png used on input line 106.
 (pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
  [4 <./big_example.png>]
-<norm_map_big.png, id=42, 925.056pt x 552.1428pt>
+<norm_map_big.png, id=55, 925.056pt x 552.1428pt>
 File: norm_map_big.png Graphic file (type png)
  <use norm_map_big.png>
 Package pdftex.def Info: norm_map_big.png used on input line 114.
@@ -519,46 +531,46 @@ Overfull \hbox (72.52687pt too wide) in paragraph at lines 114--115
  []
 
 [5 <./hist_of_abs_norm.png>]
-<small_example_seq_b.png, id=50, 462.528pt x 346.896pt>
+<label_statis_seq_b.png, id=62, 602.25pt x 372.39125pt>
+File: label_statis_seq_b.png Graphic file (type png)
+
+<use label_statis_seq_b.png>
+Package pdftex.def Info: label_statis_seq_b.png used on input line 123.
+(pdftex.def)             Requested size: 361.35278pt x 223.43646pt.
+ [6 <./norm_map_big.png>]
+<small_example_seq_b.png, id=69, 462.528pt x 346.896pt>
 File: small_example_seq_b.png Graphic file (type png)
 
 <use small_example_seq_b.png>
-Package pdftex.def Info: small_example_seq_b.png used on input line 122.
+Package pdftex.def Info: small_example_seq_b.png used on input line 133.
 (pdftex.def)             Requested size: 457.90411pt x 343.42809pt.
 
-Overfull \hbox (67.90411pt too wide) in paragraph at lines 122--123
+Overfull \hbox (67.90411pt too wide) in paragraph at lines 133--134
  [] 
  []
 
-[6 <./norm_map_big.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
- [7 <./small_example_seq_b.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
+[7 <./label_statis_seq_b.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
+ [8 <./small_example_seq_b.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
 
 (./submission of project 1 from Xiaoke Shen.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 128.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 128.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
+Package rerunfilecheck Info: File `"submission of project 1 from Xiaoke Shen".o
+ut' has not changed.
+(rerunfilecheck)             Checksum: FFFF209CB0DB52F359164EED7ACCE832;261.
 
 
-Package rerunfilecheck Warning: File `"submission of project 1 from Xiaoke Shen
-".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: Checksums for `"submission of project 1 from Xiaok
-e Shen".out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  FFFF209CB0DB52F359164EED7ACCE832;261.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 128.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
  ) 
 Here is how much of TeX's memory you used:
- 8038 strings out of 492995
- 117315 string characters out of 6132704
- 212050 words of memory out of 5000000
- 11443 multiletter control sequences out of 15000+600000
+ 8050 strings out of 492995
+ 117514 string characters out of 6132704
+ 212392 words of memory out of 5000000
+ 11452 multiletter control sequences out of 15000+600000
  12478 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,6n,31p,529b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -569,11 +581,11 @@ Here is how much of TeX's memory you used:
 sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
 ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "submission of project 1 from Xiaoke Shen.pdf" (7 pages, 1277
-395 bytes).
+Output written on "submission of project 1 from Xiaoke Shen.pdf" (8 pages, 1294
+470 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 113 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
