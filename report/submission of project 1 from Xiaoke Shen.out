@@ -1,4 +1,5 @@
 \BOOKMARK [1][-]{section.1}{Project description}{}% 1
-\BOOKMARK [1][-]{section.2}{Submissions}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Original cloud point data visualization}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Submission of part \(a\)}{section.2}% 4
+\BOOKMARK [1][-]{section.2}{Original cloud point data visualization}{}% 2
+\BOOKMARK [1][-]{section.3}{Sequential labelling: submission of part \(a\)}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{get the Norm for each point}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Sequential labelling method A}{section.3}% 5

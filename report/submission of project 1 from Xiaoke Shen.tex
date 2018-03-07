@@ -51,8 +51,7 @@ One of the earlier stages in range image analysis is segmentation. The input to 
 
 (a) Compute normals for all points and apply a region-growing algorithm using the grid structure of the range images.(b) Apply a RANSAC algorithm by selecting 3 points to define a plane and then score it.(c) Apply a RANSAC algorithm by selecting 1 point and its normal to define a plane.
 
-\section{Submissions}
-\subsection{Original cloud point data visualization}
+\section{Original cloud point data visualization}
 \begin{figure}[H]
   \begin{center}
       \includegraphics[scale=0.65]{small_example_original.png}
@@ -76,7 +75,27 @@ One of the earlier stages in range image analysis is segmentation. The input to 
 \caption{The point cloud of big example.}
  \label{fig:big}
  \end{figure}
-\subsection{Submission of part (a)}
+\section{Sequential labelling: submission of part (a)}
+\subsection{get the Norm for each point}
+\subsection{Sequential labelling method A}
+ \begin{figure}[H]
+  \begin{center}
+      \includegraphics[scale=0.6]{label_statis_seq_a.png}
+\end{center}
+\caption{The original point cloud of the small example.}
+ \label{fig:sml_origin}
+ \end{figure}
+
+
+ \begin{figure}[H]
+  \begin{center}
+      \includegraphics[scale=0.99]{small_example_seq_a.png}
+\end{center}
+\caption{The original point cloud of the small example.}
+ \label{fig:sml_origin}
+ \end{figure}
+
+
 
 
 %40_to_50_scan_lines.png%big_example.png%hist_of_abs_norm.png%norm_map_big.png%number_ptx_per_label.png%small_example_seq_b.png
