@@ -83,18 +83,21 @@ def get_norm(a):
 
 def get_clean_ptx_2d_array(a):
     # if no point is found, return None, else return the found points in an array with the shape (#POINT,3)
+    has_points = True
     clean_ptx =[]
     for i in xrange(a.shape[0]):
         for j in xrange(a.shape[1]):
             if any(a[i,j,k]>0.00001 or a[i,j,k]<-0.0001 for k in range(3)):
                 clean_ptx.append(a[i,j])
-    if not clean_ptx: return None
+    if not clean_ptx: 
+        has_points = False
+        tem_ptx = np.zeros((1, 3))
     else:
         tem_ptx = np.zeros((len(clean_ptx), 3))
         for ii in xrange(len(clean_ptx)):
             tem_ptx[ii] = clean_ptx[ii]
-        return  tem_ptx
-def segmentation(ptx, K = 3, TH = 0.4):
+    return  has_points, tem_ptx
+def get_norms_for_each_ptx(file_name, ptx, K = 3, TH = 0.4):
     # K is the neighbor width 
     #print a_min_center(ptx)
     R, C = ptx.shape[0], ptx.shape[1]
@@ -102,14 +105,19 @@ def segmentation(ptx, K = 3, TH = 0.4):
     for i in xrange(R):
         for j in xrange(C):
             if i-K>=0 and j-K>=0 and i+K<R and j+K <C:
-                ptx_after_clean = get_clean_ptx_2d_array(ptx[i-K:i+K+1,j-K:j+K+1,:3])
-                if ptx_after_clean== None or ptx_after_clean.shape[0] < (2*K+1)*TH:
+                has_points , ptx_after_clean = get_clean_ptx_2d_array(ptx[i-K:i+K+1,j-K:j+K+1,:3])
+                
+                if not has_points:
+                    continue
+                elif ptx_after_clean.shape[0] < (2*K+1)*TH:
                     continue
                 else:
+                    #print ptx_after_clean.shape
                     p_prime = a_min_center(ptx_after_clean)
                     ptx_norms[i,j] = get_norm(p_prime)
-                    print ptx_norms[i,j]
-  
+                    #print ptx_norms[i,j]
+    names = file_name.split('/')
+    np.save(names[-1][:-4]+"_norms.npy", ptx_norms)
     #print ptx_norms[:10,:10]
                       
 
@@ -127,9 +135,12 @@ def data_parser(file_name,style =0,scan_lines=99, points_per_scan_line=285, plot
     clean_ptx = get_clean_ptx(cloud_point_data)
     print clean_ptx.shape
     NUMBER_OF_PLOT_DATA=int(len(clean_ptx))
-    tem_file_names = file_name.split('/')
-    plot_3d(clean_ptx,tem_file_names[-1][:-4]+'_original.png',False,style)
-    return cloud_point_data
+    names = file_name.split('/')
+    
+    plot_3d(clean_ptx,names[-1][:-4]+'_original.png',False,style)
+    ptx_reshape = cloud_point_data.reshape(R, C, cloud_point_data.shape[-1])
+    np.save(names[-1][:-4]+"_original_raw_ptx_wo_label.npy", ptx_reshape)
+    return ptx_reshape
 #    x =  clean_ptx[0:NUMBER_OF_PLOT_DATA,0]
  #   y =  clean_ptx[0:NUMBER_OF_PLOT_DATA,1]
   #  z =  clean_ptx[0:NUMBER_OF_PLOT_DATA,2]
@@ -150,8 +161,9 @@ if __name__ == "__main__":
     for i in range(len(file_names)-1):
         R, C = scan_lines[i],points_per_scan_line[i]
         ptx = data_parser(file_names[i],i ,R, C)
-        ptx_reshape = ptx.reshape(R, C, ptx.shape[-1])
-        segmentation(ptx)
+        
+       # print ptx_reshape.shape
+        get_norms_for_each_ptx(file_names[i],ptx)
     
 
 
